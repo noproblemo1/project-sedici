@@ -4,67 +4,67 @@
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 47.4% 11.2%;
+    --background: #660000;
+    --foreground: #FFFDFD;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted: #874444;
+    --muted-foreground: #844646;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 47.4% 11.2%;
+    --popover: #ffffff;
+    --popover-foreground: #660000;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
+    --border: #FFFDFD;
+    --input: #FFFDFD;
 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 47.4% 11.2%;
+    --card: #ffffff;
+    --card-foreground: #660000;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    --primary: #660000;
+    --primary-foreground: #FCF7F7;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    --secondary: #FAF2F2;
+    --secondary-foreground: #660000;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --accent: #FAF2F2;
+    --accent-foreground: #660000;
 
-    --destructive: 0 100% 50%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: #0037FF;
+    --destructive-foreground: #FCF7F7;
 
-    --ring: 215 20.2% 65.1%;
+    --ring: #B89393;
 
     --radius: 0.5rem;
   }
 
   .dark {
-    --background: 224 71% 4%;
-    --foreground: 213 31% 91%;
+    --background: #120303;
+    --foreground: #F0E1E1;
 
-    --muted: 223 47% 11%;
-    --muted-foreground: 215.4 16.3% 56.9%;
+    --muted: #290F0F;
+    --muted-foreground: #A37F7F;
 
-    --accent: 216 34% 17%;
-    --accent-foreground: 210 40% 98%;
+    --accent: #400505;
+    --accent-foreground: #FCF7F7;
 
-    --popover: 224 71% 4%;
-    --popover-foreground: 215 20.2% 65.1%;
+    --popover: #120303;
+    --popover-foreground: #B89393;
 
-    --border: 216 34% 17%;
-    --input: 216 34% 17%;
+    --border: #400505;
+    --input: #400505;
 
-    --card: 224 71% 4%;
-    --card-foreground: 213 31% 91%;
+    --card: #120303;
+    --card-foreground: #F0E1E1;
 
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 1.2%;
+    --primary: #FCF7F7;
+    --primary-foreground: #050202;
 
-    --secondary: 222.2 47.4% 11.2%;
-    --secondary-foreground: 210 40% 98%;
+    --secondary: #660000;
+    --secondary-foreground: #FCF7F7;
 
-    --destructive: 0 63% 31%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: #0037FF;
+    --destructive-foreground: #FCF7F7;
 
-    --ring: 216 34% 17%;
+    --ring: #400505;
 
     --radius: 0.5rem;
   }
