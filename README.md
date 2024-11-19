@@ -2,7 +2,7 @@
 
 Get your own community handle for Bluesky!
 
-Go to https://swifties.social to join the swifties.social community.
+Go to https://sedici.me to join the Sedici Leclerc community.
 
 ## What is a community handle?
 
@@ -14,9 +14,7 @@ This tool lets members of your community easily get a community handle. Simply g
 
 ## How do I host my own community handle tool?
 
-If you want to set up your own community handle for your own community, you can use this tool. It's free and open source, and you can host it yourself. If it's a bit too technical for you, you can [use our hosted version](https://swifties.social/get-your-own).
-
-Otherwise, follow these instructions for the easiest way to set up your own community handle tool.
+If you want to set up your own community handle for your own community, you can use this tool. It's free and open source, and you can host it yourself by following these instructions.
 
 > These instructions assume you have a basic understanding of Git, GitHub, and Vercel. It not the only way to host it (it's just a Next.js app) but it is probably the simplest way.
 
@@ -24,7 +22,7 @@ You will need to own a domain you want to use, and have a Vercel account linked 
 
 ### 1. Fork this repository
 
-Fork this repository to your own GitHub account, and clone it to your local machine.
+Fork [Mozzius' community handles repository](https://railway.app) to your own GitHub account, and clone it to your local machine.
 
 ### 2. Add the project to Vercel
 
@@ -67,6 +65,6 @@ That's it! You should now be able to go to your domain and use the community han
 
 > Remember it takes a few minutes for DNS to propagate, so it might not work straight away.
 
-If you have any problems, mention me on Bluesky ([@samuel.bsky.team](https://bsky.app/profile/samuel.bsky.team)) or DM me on Twitter ([@mozzius](https://twitter.com/mozzius)) and I'll try to help.
+If you have any problems, mention Mozzius on Bluesky ([@samuel.bsky.team](https://bsky.app/profile/samuel.bsky.team)) or DM him on Twitter ([@mozzius](https://twitter.com/mozzius)) and he'll try to help.
 
-If you like the project, you can [sponsor me](https://github.com/sponsors/mozzius)! It's not required, but it's appreciated :)
+If you like the project, you can [sponsor Mozzius](https://github.com/sponsors/mozzius)! It's not required, but it's appreciated :)
