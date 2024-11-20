@@ -175,14 +175,14 @@ export default async function IndexPage({
                   {(() => {
                     switch (error2) {
                       case "handle taken":
-                        return "Handle already taken - please enter a different handle"
+                        return "Handle is already taken - please enter a different handle"
                       case "invalid handle":
                       case "slur":
                         return "Invalid handle - please enter a different handle"
                       case "reserved":
                         return "Reserved handle - please enter a different handle"
                       default:
-                        return "An error occured - please try again"
+                        return "An error occurred - please try again"
                     }
                   })()}
                 </p>
@@ -204,8 +204,12 @@ export default async function IndexPage({
           </p>
           <p className="mt-6 max-w-lg text-sm">
             If you like this project, consider{" "}
+            <a href="https://bsky.app/lordperceval.sedici.me" className="underline">
+            me on Bluesky and spreading the love for your new Sedici handle.
+          <p className="mt-6 max-w-lg text-sm">
+            This project isn't possible without the work of Mozzius, so consider {" "}
             <a href="https://github.com/sponsors/mozzius" className="underline">
-              sponsoring my work
+              sponsoring Mozzius' work to build the community handle project.
             </a>
             .
           </p>
