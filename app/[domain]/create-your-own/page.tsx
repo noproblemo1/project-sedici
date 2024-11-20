@@ -53,11 +53,22 @@ export default function CommunityPage() {
               href="https://github.com/mozzius/community-handles"
               className="underline"
             >
-              fork Mozzius' project on GitHub
+              fork the project on GitHub
             </a>
             . It{"'"}s a Next.js project, so you can deploy it however you like.
             Check out the README for the recommended solution, using Vercel and
             Railway.
+          </p>
+          <p className="mt-8 max-w-lg text-sm text-muted-foreground">
+            Using the hosted version? (no longer available){" "}
+            <a
+              href="https://billing.stripe.com/p/login/6oEbJccQOh2Rdji4gg"
+              className="underline"
+            >
+              Go to the billing portal
+            </a>
+            .
+          </p>
         </Stage>
       </div>
     </main>
