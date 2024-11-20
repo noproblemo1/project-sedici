@@ -25,14 +25,14 @@ export default function CommunityPage() {
         </h1>
         <p className="max-w-[700px] text-lg text-muted-foreground sm:text-xl">
           Want a custom community handle for your community, like
-          @taylor.swifties.social, @charles.sedici.me, or @lewis.teamlh.social? Follow
+          @alex.swifties.social, @jay.army.social, or @jane.kawaii.social? Follow
           these steps to get one.
         </p>
       </div>
       <div>
         <Stage title="Buy a domain" number={1}>
           <p className="max-w-lg">
-            Buy a domain from a domain registrar. I used{" "}
+            Buy a domain from a domain registrar. We use{" "}
             <a
               href="https://namecheap.com"
               className="underline"
