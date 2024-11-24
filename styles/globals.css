@@ -10,7 +10,7 @@
     --muted: 0, 31.37%, 40%;
     --muted-foreground: 0, 31%, 40%;
 
-    --popover: 0, 0%, 100%;
+    --popover: 0, 100%, 100%;
     --popover-foreground: 0, 100%, 20%;
 
     --border: 0, 100%, 100%;
@@ -52,8 +52,8 @@
     --border: 0, 85.51%, 13.53%;
     --input: 0, 85.51%, 13.53%;
 
-    --card: 0, 71.43%, 4.12%;
-    --card-foreground: 0, 33.33%, 91.18%;
+    --card: 0, 33.33%, 91.18%;
+    --card-foreground: 0, 71.43%, 4.12%;
 
     --primary: 0, 45.45%, 97.84%;
     --primary-foreground: 0, 42.86%, 1.37%;
