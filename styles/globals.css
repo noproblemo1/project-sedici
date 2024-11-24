@@ -10,8 +10,8 @@
     --muted: 0, 31.37%, 40%;
     --muted-foreground: 0, 31%, 40%;
 
-    --popover: 0, 0%, 100%;
-    --popover-foreground: 0, 100%, 20%;
+    --popover: 0, 100%, 20%;
+    --popover-foreground: 0, 0%, 100%;
 
     --border: 0, 100%, 100%;
     --input: 0, 100%, 100%;
@@ -46,8 +46,8 @@
     --accent: 0, 85.51%, 13.53%;
     --accent-foreground: 0, 45.45%, 97.84%;
 
-    --popover: 0, 71.43%, 4.12%;
-    --popover-foreground: 0, 20.67%, 64.9%;
+    --popover: 0, 20.67%, 64.9%;
+    --popover-foreground: 0, 71.43%, 4.12%;
 
     --border: 0, 85.51%, 13.53%;
     --input: 0, 85.51%, 13.53%;
