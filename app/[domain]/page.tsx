@@ -267,5 +267,6 @@ const RESERVED = [
   "Sedici",
   "natgracing",
   "natg",
-  "ng",
+  "NG",
+  "CL",
 ].map((x) => x.toLowerCase())
