@@ -1,14 +1,16 @@
-import { useState, useRef } from 'react'
-import { AppBskyActorDefs } from "@atproto/api"
-import { Check, X } from "lucide-react"
+"use client"
 
-import { agent } from "@/lib/atproto"
-import { prisma } from "@/lib/db"
-import { hasExplicitSlur } from "@/lib/slurs"
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { Profile } from "@/components/profile"
-import { Stage } from "@/components/stage"
+import { useState, useRef } from "react";
+import { AppBskyActorDefs } from "@atproto/api";
+import { Check, X } from "lucide-react";
+
+import { agent } from "@/lib/atproto";
+import { prisma } from "@/lib/db";
+import { hasExplicitSlur } from "@/lib/slurs";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Profile } from "@/components/profile";
+import { Stage } from "@/components/stage";
 
 export function generateMetadata({ params }: { params: { domain: string } }) {
   const domain = params.domain
