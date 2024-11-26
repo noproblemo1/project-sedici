@@ -1,16 +1,16 @@
-"use client"
+// app/[domain]/page.tsx
 
-import { useState, useRef } from "react";
-import { AppBskyActorDefs } from "@atproto/api";
-import { Check, X } from "lucide-react";
+import { AppBskyActorDefs } from "@atproto/api"
+import { Check, X } from "lucide-react"
 
-import { agent } from "@/lib/atproto";
-import { prisma } from "@/lib/db";
-import { hasExplicitSlur } from "@/lib/slurs";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Profile } from "@/components/profile";
-import { Stage } from "@/components/stage";
+import { agent } from "@/lib/atproto"
+import { prisma } from "@/lib/db"
+import { hasExplicitSlur } from "@/lib/slurs"
+import { Button } from "@/components/ui/button"
+import { Input } from "@/components/ui/input"
+import { Profile } from "@/components/profile"
+import { Stage } from "@/components/stage"
+import VideoComponent from "@/components/VideoComponent" // Import the Client Component
 
 export function generateMetadata({ params }: { params: { domain: string } }) {
   const domain = params.domain
@@ -110,17 +110,6 @@ export default async function IndexPage({
     }
   }
 
-  const [muted, setMuted] = useState(true) // State to control mute/unmute
-  const videoRef = useRef<HTMLVideoElement | null>(null)
-
-  // Mute/unmute handler for video
-  const toggleMute = () => {
-    if (videoRef.current) {
-      videoRef.current.muted = !videoRef.current.muted
-      setMuted(videoRef.current.muted)
-    }
-  }
-
   return (
     <main className="container grid items-center gap-6 pb-8 pt-6 md:py-10">
       <div className="flex max-w-[980px] flex-col items-start gap-4">
@@ -138,9 +127,7 @@ export default async function IndexPage({
         <form>
           <div className="grid w-full max-w-sm items-center gap-1.5">
             <div className="flex w-full max-w-sm items-center space-x-2">
-              {newHandle && (
-                <input type="hidden" name="new-handle" value="" />
-              )}
+              {newHandle && <input type="hidden" name="new-handle" value="" />}
               <Input
                 type="text"
                 name="handle"
@@ -232,30 +219,7 @@ export default async function IndexPage({
       </Stage>
 
       {/* Video embed with subtitle */}
-      <div className="video-container mt-8">
-        <h2 className="text-lg text-muted-foreground sm:text-xl mb-4">
-          Sedici.me Tutorial Video
-        </h2>
-        <video
-          ref={videoRef}
-          className="w-full max-w-none"
-          width="100%" // makes the video responsive
-          height="auto"
-          controls
-          autoPlay
-          loop
-          poster="/poster.jpeg" // Path to poster image in the public folder
-        >
-          <source src="/instructions.mp4" type="video/mp4" />
-          Your browser does not support the video tag.
-        </video>
-        <button
-          onClick={toggleMute}
-          className="mt-4 p-2 bg-blue-500 text-white"
-        >
-          {muted ? "Unmute" : "Mute"}
-        </button>
-      </div>
+      <VideoComponent /> {/* Use the Client Component */}
     </main>
   )
 }
