@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react'
+import { useState, useRef } from 'react'
 import { AppBskyActorDefs } from "@atproto/api"
 import { Check, X } from "lucide-react"
 
@@ -18,7 +18,8 @@ export function generateMetadata({ params }: { params: { domain: string } }) {
   }
 }
 
-export default function IndexPage({
+// Now the page component is an async function to support SSR
+export default async function IndexPage({
   params,
   searchParams,
 }: {
@@ -36,9 +37,6 @@ export default function IndexPage({
   let profile: AppBskyActorDefs.ProfileView | undefined
   let error1: string | undefined
   let error2: string | undefined
-
-  const [muted, setMuted] = useState(true) // State to control mute/unmute
-  const videoRef = useRef<HTMLVideoElement | null>(null)
 
   if (handle) {
     try {
@@ -109,6 +107,9 @@ export default function IndexPage({
       }
     }
   }
+
+  const [muted, setMuted] = useState(true) // State to control mute/unmute
+  const videoRef = useRef<HTMLVideoElement | null>(null)
 
   // Mute/unmute handler for video
   const toggleMute = () => {
@@ -241,8 +242,7 @@ export default function IndexPage({
           controls
           autoPlay
           loop
-          muted={muted}  // Controlled muted state
-          poster="/poster.jpeg"  {/* Path to your poster image */}
+          poster="/poster.jpeg" // Path to poster image in the public folder
         >
           <source src="/instructions.mp4" type="video/mp4" />
           Your browser does not support the video tag.
@@ -265,8 +265,4 @@ const RESERVED = [
   "16",
   "Charles",
   "Sedici",
-  "natgracing",
-  "natg",
-  "NG",
-  "CL",
 ].map((x) => x.toLowerCase())
