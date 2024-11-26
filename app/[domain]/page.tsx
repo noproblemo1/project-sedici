@@ -1,3 +1,4 @@
+import { useRef } from 'react'
 import { AppBskyActorDefs } from "@atproto/api"
 import { Check, X } from "lucide-react"
 
@@ -117,99 +118,129 @@ export default async function IndexPage({
           Follow the instructions below to get your own {domain} handle
         </p>
       </div>
-      <div>
-        <Stage title="Enter your current handle" number={1}>
-          <form>
-            <div className="grid w-full max-w-sm items-center gap-1.5">
-              <div className="flex w-full max-w-sm items-center space-x-2">
-                {newHandle && (
-                  <input type="hidden" name="new-handle" value="" />
-                )}
-                <Input
-                  type="text"
-                  name="handle"
-                  placeholder="example.bsky.social"
-                  defaultValue={handle}
-                  required
-                />
-                <Button type="submit">Submit</Button>
-              </div>
-              <p className="text-sm text-muted-foreground">
-                Enter your current handle, not including the @
-              </p>
-              {error1 && (
-                <p className="flex flex-row items-center gap-2 text-sm text-red-500">
-                  <X className="size-4" /> Handle not found - please try again
-                </p>
+
+      {/* Stage 1: Enter current handle */}
+      <Stage title="Enter your current handle" number={1}>
+        <form>
+          <div className="grid w-full max-w-sm items-center gap-1.5">
+            <div className="flex w-full max-w-sm items-center space-x-2">
+              {newHandle && (
+                <input type="hidden" name="new-handle" value="" />
               )}
-              {profile && (
-                <>
-                  <p className="text-muted-forground mt-4 flex flex-row items-center gap-2 text-sm">
-                    <Check className="size-4 text-green-500" /> Account found
-                  </p>
-                  <Profile profile={profile} className="mt-4" />
-                </>
-              )}
+              <Input
+                type="text"
+                name="handle"
+                placeholder="example.bsky.social"
+                defaultValue={handle}
+                required
+              />
+              <Button type="submit">Submit</Button>
             </div>
-          </form>
-        </Stage>
-        <Stage title="Choose your new handle" number={2} disabled={!profile}>
-          <form>
-            <input type="hidden" name="handle" value={handle} />
-            <div className="grid w-full max-w-sm items-center gap-1.5">
-              <div className="flex w-full max-w-sm items-center space-x-2">
-                <Input
-                  type="text"
-                  name="new-handle"
-                  placeholder={`example.${domain}`}
-                  defaultValue={newHandle}
-                />
-                <Button type="submit">Submit</Button>
-              </div>
-              <p className="text-sm text-muted-foreground">
-                Enter the {domain} handle that you would like to have, not
-                including the @
+            <p className="text-sm text-muted-foreground">
+              Enter your current handle, not including the @
+            </p>
+            {error1 && (
+              <p className="flex flex-row items-center gap-2 text-sm text-red-500">
+                <X className="size-4" /> Handle not found - please try again
               </p>
-              {error2 && (
-                <p className="text-sm text-red-500">
-                  {(() => {
-                    switch (error2) {
-                      case "handle taken":
-                        return "Handle already taken - please enter a different handle"
-                      case "invalid handle":
-                      case "slur":
-                        return "Invalid handle - please enter a different handle"
-                      case "reserved":
-                        return "Reserved handle - please enter a different handle"
-                      default:
-                        return "An error occurred - please try again"
-                    }
-                  })()}
+            )}
+            {profile && (
+              <>
+                <p className="text-muted-forground mt-4 flex flex-row items-center gap-2 text-sm">
+                  <Check className="size-4 text-green-500" /> Account found
                 </p>
-              )}
+                <Profile profile={profile} className="mt-4" />
+              </>
+            )}
+          </div>
+        </form>
+      </Stage>
+
+      {/* Stage 2: Choose new handle */}
+      <Stage title="Choose your new handle" number={2} disabled={!profile}>
+        <form>
+          <input type="hidden" name="handle" value={handle} />
+          <div className="grid w-full max-w-sm items-center gap-1.5">
+            <div className="flex w-full max-w-sm items-center space-x-2">
+              <Input
+                type="text"
+                name="new-handle"
+                placeholder={`example.${domain}`}
+                defaultValue={newHandle}
+              />
+              <Button type="submit">Submit</Button>
             </div>
-          </form>
-        </Stage>
-        <Stage
-          title="Change your handle within the Bluesky app"
-          number={3}
-          disabled={!newHandle || !!error2}
-          last
+            <p className="text-sm text-muted-foreground">
+              Enter the {domain} handle that you would like to have, not
+              including the @
+            </p>
+            {error2 && (
+              <p className="text-sm text-red-500">
+                {(() => {
+                  switch (error2) {
+                    case "handle taken":
+                      return "Handle already taken - please enter a different handle"
+                    case "invalid handle":
+                    case "slur":
+                      return "Invalid handle - please enter a different handle"
+                    case "reserved":
+                      return "Reserved handle - please enter a different handle"
+                    default:
+                      return "An error occurred - please try again"
+                  }
+                })()}
+              </p>
+            )}
+          </div>
+        </form>
+      </Stage>
+
+      {/* Stage 3: Change handle in Bluesky app */}
+      <Stage
+        title="Change your handle within the Bluesky app"
+        number={3}
+        disabled={!newHandle || !!error2}
+        last
+      >
+        <p className="max-w-lg text-sm">
+          Go to Settings {">"} Account {">"} Handle {">"}. Select &quot;I
+          have my own domain&quot; and enter{" "}
+          {newHandle ? `"${newHandle}"` : "your new handle"}. Finally, tap
+          &quot;Verify DNS Record&quot;.
+        </p>
+        <p className="mt-6 max-w-lg text-sm">
+          If you like this project, consider{" "}
+          <a href="https://github.com/sponsors/mozzius" className="underline">
+            sponsoring Mozzius' work
+          </a>
+          .
+        </p>
+      </Stage>
+
+      {/* Video embed with subtitle */}
+      <div className="video-container mt-8">
+        <h2 className="text-lg text-muted-foreground sm:text-xl mb-4">
+          Sedici.me Tutorial Video
+        </h2>
+        <video
+          ref={videoRef}
+          className="w-full max-w-none"
+          width="100%" // makes the video responsive
+          height="auto"
+          controls
+          autoPlay
+          loop
+          poster="/path/to/poster-image.jpg" // Replace with the actual poster image URL
         >
-          <p className="max-w-lg text-sm">
-            Go to Settings {">"} Account {">"} Handle {">"}. Select &quot;I
-            have my own domain&quot; and enter{" "}
-            {newHandle ? `"${newHandle}"` : "your new handle"}. Finally, tap
-            &quot;Verify DNS Record&quot;.
-          </p>
-          <p className="mt-6 max-w-lg text-sm">
-            If you like this project, consider{" "}
-            <a href="https://github.com/sponsors/mozzius" className="underline">
-              sponsoring Mozzius' work
-            </a>
-            .
-          </p>
-        </Stage>
+          <source src="/instructions.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+        <button
+          onClick={toggleMute}
+          className="mt-4 p-2 bg-blue-500 text-white"
+        >
+          Toggle Mute
+        </button>
       </div>
     </main>
   )
