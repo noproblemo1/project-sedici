@@ -1,4 +1,4 @@
-import { useRef } from 'react'
+import { useRef, useState } from 'react'
 import { AppBskyActorDefs } from "@atproto/api"
 import { Check, X } from "lucide-react"
 
@@ -18,7 +18,7 @@ export function generateMetadata({ params }: { params: { domain: string } }) {
   }
 }
 
-export default async function IndexPage({
+export default function IndexPage({
   params,
   searchParams,
 }: {
@@ -36,6 +36,9 @@ export default async function IndexPage({
   let profile: AppBskyActorDefs.ProfileView | undefined
   let error1: string | undefined
   let error2: string | undefined
+
+  const [muted, setMuted] = useState(true) // State to control mute/unmute
+  const videoRef = useRef<HTMLVideoElement | null>(null)
 
   if (handle) {
     try {
@@ -104,6 +107,14 @@ export default async function IndexPage({
           error2 = "invalid handle"
         }
       }
+    }
+  }
+
+  // Mute/unmute handler for video
+  const toggleMute = () => {
+    if (videoRef.current) {
+      videoRef.current.muted = !videoRef.current.muted
+      setMuted(videoRef.current.muted)
     }
   }
 
@@ -230,7 +241,7 @@ export default async function IndexPage({
           controls
           autoPlay
           loop
-          muted
+          muted={muted}  // Controlled muted state
           poster="/poster.jpeg"  {/* Path to your poster image */}
         >
           <source src="/instructions.mp4" type="video/mp4" />
@@ -240,7 +251,7 @@ export default async function IndexPage({
           onClick={toggleMute}
           className="mt-4 p-2 bg-blue-500 text-white"
         >
-          Toggle Mute
+          {muted ? "Unmute" : "Mute"}
         </button>
       </div>
     </main>
