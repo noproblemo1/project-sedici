@@ -30,7 +30,6 @@ export default function VideoComponent() {
         poster="/poster.jpeg" // Path to poster image in the public folder
       >
         <source src="/instructions.mp4" type="video/mp4" />
-        <source src="/instructions.mp4" type="video/webm" />
         Your browser does not support the video tag.
       </video>
       <button
