@@ -230,7 +230,8 @@ export default async function IndexPage({
           controls
           autoPlay
           loop
-          poster="/path/to/poster-image.jpg" // Replace with the actual poster image URL
+          muted
+          poster="/poster.jpeg"  {/* Path to your poster image */}
         >
           <source src="/instructions.mp4" type="video/mp4" />
           Your browser does not support the video tag.
