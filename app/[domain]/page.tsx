@@ -235,4 +235,6 @@ const RESERVED = [
   "Sedici",
   "Lord_Perceval",
   "Perceval",
+  "CL16",
+  "LordPerceval",
 ].map((x) => x.toLowerCase())
