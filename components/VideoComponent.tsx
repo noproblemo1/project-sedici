@@ -9,6 +9,7 @@ export default function VideoComponent() {
   const [playbackRate, setPlaybackRate] = useState(1); // Track the video speed (normal speed)
   const videoRef = useRef<HTMLDivElement | null>(null); // Ref for the div containing the video
   const playerRef = useRef<Player | null>(null); // Ref for the Vimeo Player instance
+  const videoElementRef = useRef<HTMLVideoElement | null>(null); // Ref for the underlying video element
 
   // Initialize the Vimeo player and handle its events
   useEffect(() => {
@@ -25,12 +26,15 @@ export default function VideoComponent() {
         portrait: false, // Hide portrait
       });
 
+      // Set the reference to the underlying video element
+      playerRef.current = player;
+      player.getVideoElement().then((videoElement) => {
+        videoElementRef.current = videoElement;
+      });
+
       // Listen for play and pause events
       player.on("play", () => setIsPlaying(true));
       player.on("pause", () => setIsPlaying(false));
-
-      // Store player instance
-      playerRef.current = player;
 
       // Cleanup function when the component unmounts
       return () => {
@@ -78,8 +82,13 @@ export default function VideoComponent() {
 
   // Toggle picture-in-picture mode
   const togglePiP = () => {
-    if (playerRef.current) {
-      playerRef.current.requestPictureInPicture(); // Request PiP mode
+    if (videoElementRef.current) {
+      // Request PiP on the underlying video element
+      if (document.pictureInPictureElement) {
+        document.exitPictureInPicture(); // Exit PiP if it's active
+      } else {
+        videoElementRef.current.requestPictureInPicture(); // Enter PiP mode
+      }
     }
   };
 
