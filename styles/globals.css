@@ -11,7 +11,7 @@
     font-style: normal;
     font-display: swap;
   }
-
+  
   @font-face {
     font-family: 'LEMONMILK';
     src: url('/fonts/LEMONMILK-Regular.otf') format('opentype');
@@ -19,7 +19,7 @@
     font-style: normal;
     font-display: swap;
   }
-
+  
   @font-face {
     font-family: 'LEMONMILK';
     src: url('/fonts/LEMONMILK-Medium.otf') format('opentype');
@@ -27,7 +27,7 @@
     font-style: normal;
     font-display: swap;
   }
-
+  
   @font-face {
     font-family: 'LEMONMILK';
     src: url('/fonts/LEMONMILK-Bold.otf') format('opentype');
@@ -35,7 +35,7 @@
     font-style: normal;
     font-display: swap;
   }
-
+  
   @font-face {
     font-family: 'LEMONMILK';
     src: url('/fonts/LEMONMILK-LightItalic.otf') format('opentype');
@@ -43,7 +43,7 @@
     font-style: italic;
     font-display: swap;
   }
-
+  
   @font-face {
     font-family: 'LEMONMILK';
     src: url('/fonts/LEMONMILK-RegularItalic.otf') format('opentype');
@@ -51,7 +51,7 @@
     font-style: italic;
     font-display: swap;
   }
-
+  
   @font-face {
     font-family: 'LEMONMILK';
     src: url('/fonts/LEMONMILK-MediumItalic.otf') format('opentype');
@@ -59,7 +59,7 @@
     font-style: italic;
     font-display: swap;
   }
-
+  
   @font-face {
     font-family: 'LEMONMILK';
     src: url('/fonts/LEMONMILK-BoldItalic.otf') format('opentype');
@@ -67,6 +67,7 @@
     font-style: italic;
     font-display: swap;
   }
+  
 
   :root {
     --background: 0, 100%, 100%;
