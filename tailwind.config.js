@@ -34,7 +34,7 @@ module.exports = {
         DEFAULT: "var(--radius)",
       },
       fontFamily: {
-        sans: ["Inter", ...fontFamily.sans], // Adjust or extend font settings if necessary
+        sans: ["LEMONMILK", "Inter", ...fontFamily.sans], // Add LEMONMILK as the primary font for sans-serif
       },
     },
   },
