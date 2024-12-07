@@ -2,11 +2,11 @@
 
 Get your own community handle for Bluesky!
 
-Go to https://sedici.me to join the Sedici Leclerc community.
+Go to [sedici.me](https://sedici.me) to join the Charles Leclerc community on Bluesky.
 
 ## What is a community handle?
 
-A domain that other people can have their own subdomain on. For example, [@mozzius.swifties.social](https://mozzius.swifties.social) is a community handle that is part of the https://swifties.social community.
+A domain that other people can have their own subdomain on. For example, [@tadej.sedici.me](https://tadej.sedici.me) is a community handle that is part of the [sedici.me](https://sedici.me) community.
 
 ## How do I get a community handle?
 
