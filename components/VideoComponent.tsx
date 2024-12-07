@@ -6,6 +6,7 @@ import Player from "@vimeo/player"; // Assuming Player is imported correctly
 export default function VideoComponent() {
   const [isPlaying, setIsPlaying] = useState(false); // Track play/pause state
   const [volume, setVolume] = useState(1); // Track the volume (0 to 1)
+  const [muted, setMuted] = useState(false); // Track mute/unmute state
   const [playbackRate, setPlaybackRate] = useState(1); // Track the video speed (normal speed)
   const videoRef = useRef<HTMLDivElement | null>(null); // Ref for the div containing the video
   const playerRef = useRef<Player | null>(null); // Ref for the Vimeo Player instance
@@ -51,12 +52,21 @@ export default function VideoComponent() {
     }
   };
 
+  // Handle mute/unmute toggle
+  const toggleMute = () => {
+    if (playerRef.current) {
+      playerRef.current.setMuted(!muted);
+      setMuted(!muted);
+    }
+  };
+
   // Set volume and update background based on the volume
   const changeVolume = (event: React.ChangeEvent<HTMLInputElement>) => {
     const newVolume = parseFloat(event.target.value);
     setVolume(newVolume);
     if (playerRef.current) {
       playerRef.current.setVolume(newVolume); // Update the player volume
+      if (newVolume > 0) setMuted(false); // Unmute if volume is adjusted
     }
   };
 
@@ -91,10 +101,15 @@ export default function VideoComponent() {
       />
 
       {/* Custom Controls */}
-      <div className="controls mt-4 flex justify-between items-center">
+      <div className="controls mt-4 flex items-center gap-4">
         {/* Play/Pause Button */}
         <button onClick={togglePlayPause} className="play-pause-btn">
           {isPlaying ? "Pause" : "Play"}
+        </button>
+
+        {/* Mute/Unmute Button */}
+        <button onClick={toggleMute} className="mute-unmute-btn">
+          {muted ? "Unmute" : "Mute"}
         </button>
 
         {/* Volume Control */}
@@ -166,8 +181,32 @@ export default function VideoComponent() {
           width: 640px; /* Controls match the video width */
         }
 
+        .play-pause-btn,
+        .mute-unmute-btn,
+        .fullscreen-btn {
+          background: #660000;
+          color: white;
+          border: none;
+          padding: 0.5rem 1rem;
+          border-radius: 5px;
+          cursor: pointer;
+        }
+
+        .play-pause-btn:hover,
+        .mute-unmute-btn:hover,
+        .fullscreen-btn:hover {
+          background: #992222;
+        }
+
         .fullscreen-btn {
           margin-left: 15px;
+        }
+
+        .speed-control {
+          padding: 0.3rem;
+          border: 1px solid #ccc;
+          border-radius: 5px;
+          cursor: pointer;
         }
       `}</style>
     </div>
