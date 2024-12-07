@@ -13,6 +13,7 @@ export function Stage({ number, title, disabled, last, children, className }: Pr
   return (
     <section className={cn(className, disabled && "opacity-50")}>
       <div className="flex h-8 flex-row items-center">
+        {/* The bullet point (circle) background */}
         <div className="mr-4 grid size-8 shrink-0 place-items-center rounded-full bg-muted text-center dark:bg-muted text-foreground">
           {number}
         </div>
