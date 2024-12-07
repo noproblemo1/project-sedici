@@ -111,9 +111,6 @@ export default function VideoComponent() {
           />
         </div>
 
-        {/* Speed Label */}
-        <label className="speed-label">Speed</label>
-
         {/* Playback Speed */}
         <select
           value={playbackRate}
@@ -167,12 +164,6 @@ export default function VideoComponent() {
 
         .controls {
           width: 640px; /* Controls match the video width */
-        }
-
-        .speed-label {
-          margin-left: 10px;
-          font-size: 14px; /* Set the font size to match other labels */
-          font-weight: normal;
         }
 
         .fullscreen-btn {
