@@ -20,7 +20,6 @@ export function generateMetadata({ params }: { params: { domain: string } }) {
   }
 }
 
-// Now the page component is an async function to support SSR
 export default async function IndexPage({
   params,
   searchParams,
@@ -111,7 +110,7 @@ export default async function IndexPage({
   }
 
   return (
-    <main className="container grid items-center gap-6 pb-8 pt-6 md:py-10">
+    <main className="container px-4 md:px-8 grid items-center gap-6 pb-8 pt-6 md:py-10">
       <div className="flex max-w-[980px] flex-col items-start gap-4">
         <h1 className="text-3xl font-extrabold leading-tight tracking-tighter sm:text-3xl md:text-5xl lg:text-6xl">
           Get your own {domain} <br className="hidden sm:inline" />
@@ -237,4 +236,4 @@ const RESERVED = [
   "Perceval",
   "CL16",
   "LordPerceval",
-].map((x) => x.toLowerCase())
+].map((x) => x.toLowerCase());
