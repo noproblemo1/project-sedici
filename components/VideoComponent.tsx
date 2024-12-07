@@ -144,7 +144,7 @@ export default function VideoComponent() {
           width: 20px;
           height: 20px;
           border-radius: 50%;
-          background: #ff0000; /* Red color for the thumb */
+          background: #660000; /* Red color for the thumb */
           cursor: pointer;
         }
 
@@ -152,42 +152,12 @@ export default function VideoComponent() {
           width: 20px;
           height: 20px;
           border-radius: 50%;
-          background: #ff0000; /* Red color for the thumb */
+          background: #660000; /* Red color for the thumb */
           cursor: pointer;
         }
 
         .volume-control:focus {
-          background: #ccc; /* Add color change when focused */
-        }
-
-        /* Styles for Dark Mode */
-        @media (prefers-color-scheme: dark) {
-          .volume-control {
-            background: #555; /* Darker background for dark mode */
-          }
-
-          .volume-control::-webkit-slider-thumb {
-            background: #ff0000; /* Red color for the thumb in dark mode */
-          }
-
-          .volume-control::-moz-range-thumb {
-            background: #ff0000; /* Red color for the thumb in dark mode */
-          }
-        }
-
-        /* Styles for Light Mode */
-        @media (prefers-color-scheme: light) {
-          .volume-control {
-            background: #ddd; /* Lighter background for light mode */
-          }
-
-          .volume-control::-webkit-slider-thumb {
-            background: #ff0000; /* Red color for the thumb in light mode */
-          }
-
-          .volume-control::-moz-range-thumb {
-            background: #ff0000; /* Red color for the thumb in light mode */
-          }
+          background: #660000; /* Add color change when focused */
         }
       `}</style>
     </div>
