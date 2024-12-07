@@ -34,10 +34,8 @@ export default function VideoComponent() {
 
       // Cleanup function when the component unmounts
       return () => {
-        // Clean up player without calling `destroy()` if it's not available
-        if (playerRef.current) {
-          playerRef.current.off(); // Unbind all events manually
-        }
+        // Clear the player reference to allow proper cleanup
+        playerRef.current = null; // Reset reference to null
       };
     }
   }, []); // Empty dependency array to run this effect only once
