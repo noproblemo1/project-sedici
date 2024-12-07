@@ -51,7 +51,7 @@ export default function VideoComponent() {
     }
   };
 
-  // Set volume
+  // Set volume and update background based on the volume
   const changeVolume = (event: React.ChangeEvent<HTMLInputElement>) => {
     const newVolume = parseFloat(event.target.value);
     setVolume(newVolume);
@@ -75,6 +75,9 @@ export default function VideoComponent() {
       playerRef.current.requestFullscreen(); // Request fullscreen mode
     }
   };
+
+  // Calculate the background style for the volume slider
+  const volumeBackground = `linear-gradient(to right, #ff0000 ${volume * 100}%, #ddd ${volume * 100}%)`;
 
   return (
     <div className="video-container mt-8">
@@ -104,6 +107,7 @@ export default function VideoComponent() {
             value={volume}
             onChange={changeVolume}
             className="volume-control"
+            style={{ background: volumeBackground }} // Apply dynamic background
           />
           <label>Volume</label>
         </div>
@@ -133,7 +137,6 @@ export default function VideoComponent() {
           width: 100px;
           height: 8px;
           border-radius: 5px;
-          background: #ddd;
           outline: none;
           transition: background 0.3s;
         }
@@ -144,7 +147,7 @@ export default function VideoComponent() {
           width: 20px;
           height: 20px;
           border-radius: 50%;
-          background: #660000; /* Red color for the thumb */
+          background: #ff0000; /* Red color for the thumb */
           cursor: pointer;
         }
 
@@ -152,12 +155,12 @@ export default function VideoComponent() {
           width: 20px;
           height: 20px;
           border-radius: 50%;
-          background: #660000; /* Red color for the thumb */
+          background: #ff0000; /* Red color for the thumb */
           cursor: pointer;
         }
 
         .volume-control:focus {
-          background: #660000; /* Add color change when focused */
+          background: #ccc; /* Add color change when focused */
         }
       `}</style>
     </div>
