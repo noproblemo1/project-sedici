@@ -5,6 +5,7 @@ module.exports = {
     "./src/**/*.{js,ts,jsx,tsx}",
     "./components/**/*.{js,ts,jsx,tsx}",
     "./pages/**/*.{js,ts,jsx,tsx}",
+    "./app/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
     extend: {
@@ -31,6 +32,9 @@ module.exports = {
       },
       borderRadius: {
         DEFAULT: "var(--radius)",
+      },
+      fontFamily: {
+        sans: ["Inter", ...fontFamily.sans], // Adjust or extend font settings if necessary
       },
     },
   },

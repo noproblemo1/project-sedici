@@ -124,7 +124,7 @@ export default async function IndexPage({
       <Stage
         title="Enter your current handle"
         number={1}
-        numberStyle="mr-4 grid size-8 shrink-0 place-items-center rounded-full bg-muted text-center dark:bg-muted text-foreground"
+        className="bg-muted text-foreground dark:bg-muted"
       >
         <form>
           <div className="grid w-full max-w-sm items-center gap-1.5">
@@ -163,7 +163,7 @@ export default async function IndexPage({
       <Stage
         title="Choose your new handle"
         number={2}
-        numberStyle="mr-4 grid size-8 shrink-0 place-items-center rounded-full bg-muted text-center dark:bg-muted text-foreground"
+        className="bg-muted text-foreground dark:bg-muted"
         disabled={!profile}
       >
         <form>
@@ -207,7 +207,7 @@ export default async function IndexPage({
       <Stage
         title="Change your handle within the Bluesky app"
         number={3}
-        numberStyle="mr-4 grid size-8 shrink-0 place-items-center rounded-full bg-muted text-center dark:bg-muted text-foreground"
+        className="bg-muted text-foreground dark:bg-muted"
         disabled={!newHandle || !!error2}
         last
       >
