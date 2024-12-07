@@ -76,6 +76,13 @@ export default function VideoComponent() {
     }
   };
 
+  // Toggle picture-in-picture mode
+  const togglePiP = () => {
+    if (playerRef.current) {
+      playerRef.current.requestPictureInPicture(); // Request PiP mode
+    }
+  };
+
   // Calculate the background style for the volume slider with new color #660000
   const volumeBackground = `linear-gradient(to right, #660000 ${volume * 100}%, #ddd ${volume * 100}%)`;
 
@@ -91,15 +98,14 @@ export default function VideoComponent() {
       />
 
       {/* Custom Controls */}
-      <div className="controls mt-4 flex justify-between items-center" style={{ width: "640px" }}>
+      <div className="controls mt-4 flex justify-between items-center">
         {/* Play/Pause Button */}
         <button onClick={togglePlayPause} className="play-pause-btn">
           {isPlaying ? "Pause" : "Play"}
         </button>
 
         {/* Volume Control */}
-        <div className="volume-control-container" style={{ display: "flex", alignItems: "center" }}>
-          <label style={{ marginRight: "8px" }}>Volume</label> {/* Add margin-right for spacing */}
+        <div className="volume-control-container">
           <input
             type="range"
             min="0"
@@ -112,6 +118,9 @@ export default function VideoComponent() {
           />
         </div>
 
+        {/* Speed Label */}
+        <label className="speed-label">Speed</label>
+
         {/* Playback Speed */}
         <select
           value={playbackRate}
@@ -123,6 +132,11 @@ export default function VideoComponent() {
           <option value="1.5">1.5x</option>
           <option value="2">2x</option>
         </select>
+
+        {/* Picture-in-Picture Button */}
+        <button onClick={togglePiP} className="pip-btn">
+          PiP
+        </button>
 
         {/* Fullscreen Button */}
         <button onClick={toggleFullscreen} className="fullscreen-btn">
@@ -161,6 +175,19 @@ export default function VideoComponent() {
 
         .volume-control:focus {
           background: #ccc; /* Add color change when focused */
+        }
+
+        .controls {
+          width: 640px; /* Controls match the video width */
+        }
+
+        .speed-label {
+          margin-left: 10px;
+          font-size: 14px;
+        }
+
+        .pip-btn, .fullscreen-btn {
+          margin-left: 15px;
         }
       `}</style>
     </div>
