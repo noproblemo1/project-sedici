@@ -6,11 +6,12 @@ interface Props {
   disabled?: boolean
   last?: boolean
   children?: React.ReactNode
+  className?: string // Add className as an optional prop
 }
 
-export function Stage({ number, title, disabled, last, children }: Props) {
+export function Stage({ number, title, disabled, last, children, className }: Props) {
   return (
-    <section className={cn(disabled && "opacity-50")}>
+    <section className={cn(className, disabled && "opacity-50")}>
       <div className="flex h-8 flex-row items-center">
         <div className="mr-4 grid size-8 shrink-0 place-items-center rounded-full bg-muted text-center dark:bg-muted text-foreground">
           {number}
