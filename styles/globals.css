@@ -52,8 +52,8 @@
     --border: 0, 85.51%, 13.53%;
     --input: 0, 85.51%, 13.53%;
 
-    --card: 0, 33.33%, 91.18%%;
-    --card-foreground: 0, 71.43%%, 4.12%;
+    --card: 0, 33.33%, 91.18%; /* Corrected double %% */
+    --card-foreground: 0, 71.43%, 4.12%; /* Corrected double %% */
 
     --primary: 0, 45.45%, 97.84%;
     --primary-foreground: 0, 42.86%, 1.37%;
