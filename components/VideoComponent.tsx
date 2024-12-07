@@ -95,16 +95,18 @@ export default function VideoComponent() {
         </button>
 
         {/* Volume Control */}
-        <input
-          type="range"
-          min="0"
-          max="1"
-          step="0.01"
-          value={volume}
-          onChange={changeVolume}
-          className="volume-control"
-        />
-        <label>Volume</label>
+        <div className="volume-control-container">
+          <input
+            type="range"
+            min="0"
+            max="1"
+            step="0.01"
+            value={volume}
+            onChange={changeVolume}
+            className="volume-control"
+          />
+          <label>Volume</label>
+        </div>
 
         {/* Playback Speed */}
         <select
@@ -123,6 +125,41 @@ export default function VideoComponent() {
           Fullscreen
         </button>
       </div>
+
+      {/* Add the CSS Styling to customize the volume slider */}
+      <style jsx>{`
+        .volume-control {
+          -webkit-appearance: none;
+          width: 100px;
+          height: 8px;
+          border-radius: 5px;
+          background: #ddd;
+          outline: none;
+          transition: background 0.3s;
+        }
+
+        .volume-control::-webkit-slider-thumb {
+          -webkit-appearance: none;
+          appearance: none;
+          width: 20px;
+          height: 20px;
+          border-radius: 50%;
+          background: #ff0000; /* Red color for the thumb */
+          cursor: pointer;
+        }
+
+        .volume-control::-moz-range-thumb {
+          width: 20px;
+          height: 20px;
+          border-radius: 50%;
+          background: #ff0000; /* Red color for the thumb */
+          cursor: pointer;
+        }
+
+        .volume-control:focus {
+          background: #ccc; /* Add color change when focused */
+        }
+      `}</style>
     </div>
   );
 }
