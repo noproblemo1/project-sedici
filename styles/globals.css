@@ -8,7 +8,7 @@
 
   /* Apply the Lemon/Milk font to the body and globally */
   body {
-    font-family: 'Lemon/Milk', sans-serif; /* Apply Lemon/Milk globally */
+    font-family: 'Lemon/Milk', sans-serif !important;
     font-feature-settings: "rlig" 1, "calt" 1;
     @apply bg-background text-foreground; /* Ensure Tailwind background and text colors are applied */
   }
