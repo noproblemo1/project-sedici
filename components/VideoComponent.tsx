@@ -60,7 +60,6 @@ export default function VideoComponent() {
       setMuted(newMuteState); // Update the local muted state
     }
   };
-  
 
   // Set volume and update background based on the volume
   const changeVolume = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -103,7 +102,7 @@ export default function VideoComponent() {
       />
 
       {/* Custom Controls */}
-      <div className="controls mt-4 flex items-center gap-4">
+      <div className="controls mt-4 flex justify-between items-center w-full max-w-[640px]">
         {/* Play/Pause Button */}
         <button onClick={togglePlayPause} className="play-pause-btn">
           {isPlaying ? "Pause" : "Play"}
@@ -181,6 +180,8 @@ export default function VideoComponent() {
 
         .controls {
           width: 640px; /* Controls match the video width */
+          display: flex;
+          justify-content: space-between;
         }
 
         .play-pause-btn,
