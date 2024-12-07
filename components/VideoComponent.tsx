@@ -15,7 +15,7 @@ export default function VideoComponent() {
     if (videoRef.current) {
       const player = new Player(videoRef.current, {
         id: 1036990750, // The Vimeo video ID
-        width: "640",
+        width: "640", // The width of the video will be automatically adjusted to the container
         loop: true, // Enable loop
         autoplay: false, // No autoplay
         controls: false, // Disable default controls to implement custom controls
@@ -87,7 +87,13 @@ export default function VideoComponent() {
       <div
         ref={videoRef}
         className="video-wrapper"
-        style={{ position: "relative", width: "100%", height: "100%" }}
+        style={{
+          position: "relative",
+          width: "100%", // Make the width 100% of the parent container
+          height: "auto", // Set the height to auto to maintain aspect ratio
+          maxWidth: "100%", // Prevent video from exceeding container width
+          paddingBottom: "56.25%", // Aspect ratio of 16:9 (height is 56.25% of the width)
+        }}
       />
 
       {/* Custom Controls */}
