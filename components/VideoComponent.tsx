@@ -76,8 +76,8 @@ export default function VideoComponent() {
     }
   };
 
-  // Calculate the background style for the volume slider
-  const volumeBackground = `linear-gradient(to right, #ff0000 ${volume * 100}%, #ddd ${volume * 100}%)`;
+  // Calculate the background style for the volume slider with new color #660000
+  const volumeBackground = `linear-gradient(to right, #660000 ${volume * 100}%, #ddd ${volume * 100}%)`;
 
   return (
     <div className="video-container mt-8">
@@ -107,7 +107,7 @@ export default function VideoComponent() {
             value={volume}
             onChange={changeVolume}
             className="volume-control"
-            style={{ background: volumeBackground }} // Apply dynamic background
+            style={{ background: volumeBackground }} // Apply dynamic background with new color
           />
           <label>Volume</label>
         </div>
@@ -147,7 +147,7 @@ export default function VideoComponent() {
           width: 20px;
           height: 20px;
           border-radius: 50%;
-          background: #660000; /* Red color for the thumb */
+          background: #660000; /* Updated color for the thumb */
           cursor: pointer;
         }
 
@@ -155,7 +155,7 @@ export default function VideoComponent() {
           width: 20px;
           height: 20px;
           border-radius: 50%;
-          background: #660000; /* Red color for the thumb */
+          background: #660000; /* Updated color for the thumb */
           cursor: pointer;
         }
 
