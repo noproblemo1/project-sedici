@@ -29,9 +29,9 @@ export default function VideoComponent() {
         controls
         autoPlay
         loop
-        poster="/poster.jpeg" // Path to poster image in the public folder
+        poster="/components/poster.jpeg" // Path to poster image in the public folder
       >
-        <source src="/instructions.mp4" type="video/mp4" />
+        <source src="/components/instructions.mp4" type="video/mp4" />
         Your browser does not support the video tag.
       </video>
       <button
