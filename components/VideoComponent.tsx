@@ -1,5 +1,3 @@
-import React from 'react';
-
 const VideoComponent = () => {
   return (
     <div className="video-container mt-8">
