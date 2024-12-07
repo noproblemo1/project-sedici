@@ -91,14 +91,15 @@ export default function VideoComponent() {
       />
 
       {/* Custom Controls */}
-      <div className="controls mt-4 flex justify-between items-center">
+      <div className="controls mt-4 flex justify-between items-center" style={{ width: "640px" }}>
         {/* Play/Pause Button */}
         <button onClick={togglePlayPause} className="play-pause-btn">
           {isPlaying ? "Pause" : "Play"}
         </button>
 
         {/* Volume Control */}
-        <div className="volume-control-container">
+        <div className="volume-control-container" style={{ display: "flex", alignItems: "center" }}>
+          <label style={{ marginRight: "8px" }}>Volume</label> {/* Add margin-right for spacing */}
           <input
             type="range"
             min="0"
@@ -109,7 +110,6 @@ export default function VideoComponent() {
             className="volume-control"
             style={{ background: volumeBackground }} // Apply dynamic background with new color
           />
-          <label>Volume</label>
         </div>
 
         {/* Playback Speed */}
