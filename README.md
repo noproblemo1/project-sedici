@@ -65,6 +65,4 @@ That's it! You should now be able to go to your domain and use the community han
 
 > Remember it takes a few minutes for DNS to propagate, so it might not work straight away.
 
-If you have any problems, mention Mozzius on Bluesky ([@samuel.bsky.team](https://bsky.app/profile/samuel.bsky.team)) or DM him on Twitter ([@mozzius](https://twitter.com/mozzius)) and he'll try to help.
-
 If you like the project, you can [sponsor Mozzius](https://github.com/sponsors/mozzius)! It's not required, but it's appreciated :)
