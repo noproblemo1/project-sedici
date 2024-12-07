@@ -1,11 +1,11 @@
-import { type Metadata, type Viewport } from "next"
+import { type Metadata, type Viewport } from "next";
 
-import { fontSans } from "@/lib/fonts"
-import { cn } from "@/lib/utils"
-import { TailwindIndicator } from "@/components/tailwind-indicator"
-import { ThemeProvider } from "@/components/theme-provider"
+import { fontSans } from "@/lib/fonts";
+import { cn } from "@/lib/utils";
+import { TailwindIndicator } from "@/components/tailwind-indicator";
+import { ThemeProvider } from "@/components/theme-provider";
 
-import "@/styles/globals.css"
+import "@/styles/globals.css";
 
 export const metadata: Metadata = {
   icons: {
@@ -13,20 +13,20 @@ export const metadata: Metadata = {
     shortcut: "/favicon-16x16.png",
     apple: "/apple-touch-icon.png",
   },
-}
+};
 
 export const viewport: Viewport = {
   themeColor: [
     { media: "(prefers-color-scheme: light)", color: "white" },
     { media: "(prefers-color-scheme: dark)", color: "black" },
   ],
+};
+
+interface LayoutProps {
+  children: React.ReactNode;
 }
 
-interface RootLayoutProps {
-  children: React.ReactNode
-}
-
-export default function RootLayout({ children }: RootLayoutProps) {
+export default function Layout({ children }: LayoutProps) {
   return (
     <>
       <html lang="en" suppressHydrationWarning>
@@ -37,7 +37,8 @@ export default function RootLayout({ children }: RootLayoutProps) {
           )}
         >
           <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-            <div className="relative flex min-h-screen flex-col">
+            {/* Add padding to the entire layout */}
+            <div className="relative flex min-h-screen flex-col px-4 md:px-8">
               {children}
             </div>
             <TailwindIndicator />
@@ -45,5 +46,5 @@ export default function RootLayout({ children }: RootLayoutProps) {
         </body>
       </html>
     </>
-  )
+  );
 }
