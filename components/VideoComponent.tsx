@@ -171,7 +171,8 @@ export default function VideoComponent() {
 
         .speed-label {
           margin-left: 10px;
-          font-size: 14px;
+          font-size: 14px; /* Set the font size to match other labels */
+          font-weight: normal;
         }
 
         .fullscreen-btn {
