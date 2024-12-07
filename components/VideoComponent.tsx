@@ -147,7 +147,7 @@ export default function VideoComponent() {
           width: 20px;
           height: 20px;
           border-radius: 50%;
-          background: #ff0000; /* Red color for the thumb */
+          background: #660000; /* Red color for the thumb */
           cursor: pointer;
         }
 
@@ -155,7 +155,7 @@ export default function VideoComponent() {
           width: 20px;
           height: 20px;
           border-radius: 50%;
-          background: #ff0000; /* Red color for the thumb */
+          background: #660000; /* Red color for the thumb */
           cursor: pointer;
         }
 
