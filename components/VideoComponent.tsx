@@ -55,10 +55,12 @@ export default function VideoComponent() {
   // Handle mute/unmute toggle
   const toggleMute = () => {
     if (playerRef.current) {
-      playerRef.current.setMuted(!muted);
-      setMuted(!muted);
+      const newMuteState = !muted;
+      playerRef.current.setVolume(newMuteState ? 0 : volume); // Set volume to 0 for mute, else restore the current volume
+      setMuted(newMuteState); // Update the local muted state
     }
   };
+  
 
   // Set volume and update background based on the volume
   const changeVolume = (event: React.ChangeEvent<HTMLInputElement>) => {
