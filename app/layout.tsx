@@ -30,6 +30,13 @@ export default function Layout({ children }: LayoutProps) {
   return (
     <>
       <html lang="en" suppressHydrationWarning>
+        <head>
+          {/* Add the link for Lemon/Milk font */}
+          <link
+            href="https://fonts.cdnfonts.com/css/lemonmilk"
+            rel="stylesheet"
+          />
+        </head>
         <body
           className={cn(
             "min-h-screen bg-background font-sans antialiased",

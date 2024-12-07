@@ -3,85 +3,15 @@
 @tailwind utilities;
 
 @layer base {
-  /* Define custom fonts using @font-face */
-  @font-face {
-    font-family: 'LEMONMILK';
-    src: url('/fonts/LEMONMILK-Light.woff2') format('woff2'),
-         url('/fonts/LEMONMILK-Light.woff') format('woff');
-    font-weight: 300; /* Light */
-    font-style: normal;
-    font-display: swap;
-  }
-  
-  @font-face {
-    font-family: 'LEMONMILK';
-    src: url('/fonts/LEMONMILK-Regular.woff2') format('woff2'),
-         url('/fonts/LEMONMILK-Regular.woff') format('woff');
-    font-weight: 400; /* Regular */
-    font-style: normal;
-    font-display: swap;
-  }
-  
-  @font-face {
-    font-family: 'LEMONMILK';
-    src: url('/fonts/LEMONMILK-Medium.woff2') format('woff2'),
-         url('/fonts/LEMONMILK-Medium.woff') format('woff');
-    font-weight: 500; /* Medium */
-    font-style: normal;
-    font-display: swap;
-  }
-  
-  @font-face {
-    font-family: 'LEMONMILK';
-    src: url('/fonts/LEMONMILK-Bold.woff2') format('woff2'),
-         url('/fonts/LEMONMILK-Bold.woff') format('woff');
-    font-weight: 700; /* Bold */
-    font-style: normal;
-    font-display: swap;
-  }
-  
-  @font-face {
-    font-family: 'LEMONMILK';
-    src: url('/fonts/LEMONMILK-LightItalic.woff2') format('woff2'),
-         url('/fonts/LEMONMILK-LightItalic.woff') format('woff');
-    font-weight: 300; /* Light Italic */
-    font-style: italic;
-    font-display: swap;
-  }
-  
-  @font-face {
-    font-family: 'LEMONMILK';
-    src: url('/fonts/LEMONMILK-RegularItalic.woff2') format('woff2'),
-         url('/fonts/LEMONMILK-RegularItalic.woff') format('woff');
-    font-weight: 400; /* Regular Italic */
-    font-style: italic;
-    font-display: swap;
-  }
-  
-  @font-face {
-    font-family: 'LEMONMILK';
-    src: url('/fonts/LEMONMILK-MediumItalic.woff2') format('woff2'),
-         url('/fonts/LEMONMILK-MediumItalic.woff') format('woff');
-    font-weight: 500; /* Medium Italic */
-    font-style: italic;
-    font-display: swap;
-  }
-  
-  @font-face {
-    font-family: 'LEMONMILK';
-    src: url('/fonts/LEMONMILK-BoldItalic.woff2') format('woff2'),
-         url('/fonts/LEMONMILK-BoldItalic.woff') format('woff');
-    font-weight: 700; /* Bold Italic */
-    font-style: italic;
-    font-display: swap;
-  }
-  
-  /* Apply the LEMONMILK font to the entire page */
+  /* Import the Lemon/Milk font from the CDN */
+  @import url('https://fonts.cdnfonts.com/css/lemonmilk');
+
+  /* Apply the Lemon/Milk font to the body and globally */
   body {
-    font-family: 'LEMONMILK', sans-serif;
+    font-family: 'Lemon/Milk', sans-serif; /* Apply Lemon/Milk globally */
+    font-feature-settings: "rlig" 1, "calt" 1;
+    @apply bg-background text-foreground; /* Ensure Tailwind background and text colors are applied */
   }
-  
-  
 
   :root {
     --background: 0, 100%, 100%;
@@ -132,8 +62,8 @@
     --border: 0, 85.51%, 13.53%;
     --input: 0, 85.51%, 13.53%;
 
-    --card: 0, 33.33%, 91.18%; /* Corrected double %% */
-    --card-foreground: 0, 71.43%, 4.12%; /* Corrected double %% */
+    --card: 0, 33.33%, 91.18%;
+    --card-foreground: 0, 71.43%, 4.12%;
 
     --primary: 0, 45.45%, 97.84%;
     --primary-foreground: 0, 42.86%, 1.37%;
@@ -153,10 +83,5 @@
 @layer base {
   * {
     @apply border-border;
-  }
-  body {
-    @apply bg-background text-foreground;
-    font-feature-settings: "rlig" 1, "calt" 1;
-    font-family: 'LEMONMILK', sans-serif; /* Apply the custom font globally */
   }
 }
