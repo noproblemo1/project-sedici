@@ -114,7 +114,7 @@ export default function VideoComponent() {
         </button>
 
         {/* Volume Control */}
-        <div className="volume-control-container">
+        <div className="volume-control-container w-full max-w-[200px]">
           <input
             type="range"
             min="0"
@@ -149,7 +149,7 @@ export default function VideoComponent() {
       <style jsx>{`
         .volume-control {
           -webkit-appearance: none;
-          width: 100px;
+          width: 100%;
           height: 8px;
           border-radius: 5px;
           outline: none;
