@@ -1,11 +1,11 @@
-import { cn } from "@/lib/utils"
+import { cn } from "@/lib/utils";
 
 interface Props {
-  number: number
-  title: string
-  disabled?: boolean
-  last?: boolean
-  children?: React.ReactNode
+  number: number;
+  title: string;
+  disabled?: boolean;
+  last?: boolean;
+  children?: React.ReactNode;
 }
 
 export function Stage({ number, title, disabled, last, children }: Props) {
@@ -23,12 +23,13 @@ export function Stage({ number, title, disabled, last, children }: Props) {
       </div>
       <div
         className={cn(
-          "border-l-1 ml-4 border-l py-6 pl-8",
+          "border-l-2 ml-4 py-6 pl-8",
+          "border-[hsl(var(--foreground))]",  // Connecting line color uses --foreground
           last && "border-transparent"
         )}
       >
         {children}
       </div>
     </section>
-  )
+  );
 }
