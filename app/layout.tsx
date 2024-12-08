@@ -1,6 +1,5 @@
 import { type Metadata, type Viewport } from "next";
 
-import { fontSans } from "@/lib/fonts";
 import { cn } from "@/lib/utils";
 import { TailwindIndicator } from "@/components/tailwind-indicator";
 import { ThemeProvider } from "@/components/theme-provider";
@@ -31,17 +30,17 @@ export default function Layout({ children }: LayoutProps) {
     <>
       <html lang="en" suppressHydrationWarning>
         <head>
-          {/* Add the link for Lemon/Milk font */}
+          {/* Link to Neutraface Text font */}
           <link
-            href="https://fonts.cdnfonts.com/css/lemonmilk"
+            href="https://fonts.cdnfonts.com/css/neutraface-text"
             rel="stylesheet"
           />
         </head>
         <body
           className={cn(
-            "min-h-screen bg-background font-sans antialiased",
-            fontSans.variable
+            "min-h-screen bg-background antialiased"
           )}
+          style={{ fontFamily: "'Neutraface Text', sans-serif" }} // Force font family
         >
           <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
             {/* Add padding to the entire layout */}
