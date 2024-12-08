@@ -12,7 +12,8 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
         className={cn(
           "flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground",
           // Apply the ring color by default using the --foreground color
-          "ring-2 ring-[hsl(var(--foreground))] ring-offset-2", 
+          "ring-2 ring-[hsl(var(--foreground))] ring-offset-2",
+          "focus-visible:ring-2",
           className
         )}
         ref={ref}
