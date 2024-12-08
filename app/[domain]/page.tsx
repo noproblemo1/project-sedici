@@ -1,23 +1,23 @@
 // app/[domain]/page.tsx
 
-import { AppBskyActorDefs } from "@atproto/api"
-import { Check, X } from "lucide-react"
+import { AppBskyActorDefs } from "@atproto/api";
+import { Check, X } from "lucide-react";
 
-import { agent } from "@/lib/atproto"
-import { prisma } from "@/lib/db"
-import { hasExplicitSlur } from "@/lib/slurs"
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { Profile } from "@/components/profile"
-import { Stage } from "@/components/stage"
-import VideoComponent from "@/components/VideoComponent" // Import the Client Component
+import { agent } from "@/lib/atproto";
+import { prisma } from "@/lib/db";
+import { hasExplicitSlur } from "@/lib/slurs";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Profile } from "@/components/profile";
+import { Stage } from "@/components/stage";
+import VideoComponent from "@/components/VideoComponent"; // Import the Client Component
 
 export function generateMetadata({ params }: { params: { domain: string } }) {
-  const domain = params.domain
+  const domain = params.domain;
   return {
     title: `${domain} - get your community handle for Bluesky`,
     description: `get your own ${domain} handle`,
-  }
+  };
 }
 
 export default async function IndexPage({
@@ -25,64 +25,64 @@ export default async function IndexPage({
   searchParams,
 }: {
   params: {
-    domain: string
-  }
+    domain: string;
+  };
   searchParams: {
-    handle?: string
-    "new-handle"?: string
-  }
+    handle?: string;
+    "new-handle"?: string;
+  };
 }) {
-  const domain = params.domain
-  let handle = searchParams.handle
-  let newHandle = searchParams["new-handle"]
-  let profile: AppBskyActorDefs.ProfileView | undefined
-  let error1: string | undefined
-  let error2: string | undefined
+  const domain = params.domain;
+  let handle = searchParams.handle;
+  let newHandle = searchParams["new-handle"];
+  let profile: AppBskyActorDefs.ProfileView | undefined;
+  let error1: string | undefined;
+  let error2: string | undefined;
 
   if (handle) {
     try {
       if (!handle.includes(".")) {
-        handle += ".bsky.social"
+        handle += ".bsky.social";
       }
-      console.log("fetching profile", handle)
+      console.log("fetching profile", handle);
       const actor = await agent.getProfile({
         actor: handle,
-      })
-      if (!actor.success) throw new Error("fetch was not a success")
-      profile = actor.data
+      });
+      if (!actor.success) throw new Error("fetch was not a success");
+      profile = actor.data;
     } catch (e) {
-      console.error(e)
-      error1 = (e as Error)?.message ?? "unknown error"
+      console.error(e);
+      error1 = (e as Error)?.message ?? "unknown error";
     }
 
     if (newHandle && profile) {
-      newHandle = newHandle.trim().toLowerCase()
+      newHandle = newHandle.trim().toLowerCase();
       if (!newHandle.includes(".")) {
-        newHandle += "." + domain
+        newHandle += "." + domain;
       }
       if (!error1) {
         // regex: (alphanumeric, -, _).(domain)
         const validHandle = newHandle.match(
           new RegExp(`^[a-zA-Z0-9-_]+.${domain}$`)
-        )
+        );
         if (validHandle) {
           try {
-            const handle = newHandle.replace(`.${domain}`, "")
+            const handle = newHandle.replace(`.${domain}`, "");
             if (hasExplicitSlur(handle)) {
-              throw new Error("slur")
+              throw new Error("slur");
             }
 
             if (domain === "army.social" && RESERVED.includes(handle)) {
-              throw new Error("reserved")
+              throw new Error("reserved");
             }
 
             const existing = await prisma.user.findFirst({
               where: { handle },
               include: { domain: true },
-            })
+            });
             if (existing && existing.domain.name === domain) {
               if (existing.did !== profile.did) {
-                error2 = "handle taken"
+                error2 = "handle taken";
               }
             } else {
               await prisma.user.create({
@@ -96,14 +96,14 @@ export default async function IndexPage({
                     },
                   },
                 },
-              })
+              });
             }
           } catch (e) {
-            console.error(e)
-            error2 = (e as Error)?.message ?? "unknown error"
+            console.error(e);
+            error2 = (e as Error)?.message ?? "unknown error";
           }
         } else {
-          error2 = "invalid handle"
+          error2 = "invalid handle";
         }
       }
     }
@@ -111,10 +111,9 @@ export default async function IndexPage({
 
   return (
     <main className="container px-4 md:px-8 grid items-center gap-6 pb-8 pt-6 md:py-10">
-      <div className="flex max-w-[980px] flex-col items-start gap-4">
-        <h1 className="text-3xl font-extrabold leading-tight tracking-tighter sm:text-3xl md:text-5xl lg:text-6xl">
-          Get your own {domain} <br className="hidden sm:inline" />
-          handle for Bluesky
+      <div className="flex max-w-full flex-col items-start gap-4">
+        <h1 className="text-3xl font-extrabold leading-tight tracking-tighter sm:text-3xl md:text-5xl lg:text-6xl whitespace-nowrap">
+          Get your own {domain} handle for Bluesky
         </h1>
         <p className="max-w-[700px] text-lg text-muted-foreground sm:text-xl">
           Follow the instructions below to get your own {domain} handle
@@ -179,14 +178,14 @@ export default async function IndexPage({
                 {(() => {
                   switch (error2) {
                     case "handle taken":
-                      return "Handle already taken - please enter a different handle"
+                      return "Handle already taken - please enter a different handle";
                     case "invalid handle":
                     case "slur":
-                      return "Invalid handle - please enter a different handle"
+                      return "Invalid handle - please enter a different handle";
                     case "reserved":
-                      return "Reserved handle - please enter a different handle"
+                      return "Reserved handle - please enter a different handle";
                     default:
-                      return "An error occurred - please try again"
+                      return "An error occurred - please try again";
                   }
                 })()}
               </p>
@@ -217,12 +216,12 @@ export default async function IndexPage({
         </p>
       </Stage>
 
-      {/* Video embed with subtitle (No extra space between text instructions and video) */}
-      <div className="mt-4"> {/* Optional: Use margin-top to control spacing */}
-        <VideoComponent /> {/* Use the Client Component */}
+      {/* Video embed */}
+      <div className="mt-4">
+        <VideoComponent />
       </div>
     </main>
-  )
+  );
 }
 
 const RESERVED = [
