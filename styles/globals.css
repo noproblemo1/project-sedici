@@ -15,7 +15,7 @@
 
   :root {
     --background: 0, 100%, 100%;
-    --foreground: 0, 100%, 20%; /* This is the main foreground color */
+    --foreground: 0, 100%, 20%;
 
     --muted: 0, 31.37%, 40%;
     --muted-foreground: 0, 31%, 40%;
@@ -41,14 +41,14 @@
     --destructive: 227.06, 100%, 50%;
     --destructive-foreground: 0, 45.45%, 97.84%;
 
-    --ring: hsl(var(--foreground)); /* Set ring color to match foreground */
-    
+    --ring: 0, 20.67%, 64.9%;
+
     --radius: 0.5rem;
   }
 
   .dark {
     --background: 0, 71.43%, 4.12%;
-    --foreground: 0, 33.33%, 91.18%; /* Dark mode foreground */
+    --foreground: 0, 33.33%, 91.18%;
 
     --muted: 0, 46.43%, 10.98%;
     --muted-foreground: 0, 16.36%, 56.86%;
@@ -74,8 +74,8 @@
     --destructive: 227.06, 100%, 50%;
     --destructive-foreground: 0, 45.45%, 97.84%;
 
-    --ring: hsl(var(--foreground)); /* Set ring color to match foreground in dark mode */
-    
+    --ring: 0, 85.51%, 13.53%;
+
     --radius: 0.5rem;
   }
 
