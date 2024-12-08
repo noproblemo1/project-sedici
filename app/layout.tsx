@@ -30,9 +30,9 @@ export default function Layout({ children }: LayoutProps) {
     <>
       <html lang="en" suppressHydrationWarning>
         <head>
-          {/* Link to Neutraface Text font */}
+          {/* Add the link for PT Sans Pro font */}
           <link
-            href="https://fonts.cdnfonts.com/css/neutraface-text"
+            href="https://fonts.cdnfonts.com/css/pt-sans-pro"
             rel="stylesheet"
           />
         </head>
@@ -40,7 +40,6 @@ export default function Layout({ children }: LayoutProps) {
           className={cn(
             "min-h-screen bg-background antialiased"
           )}
-          style={{ fontFamily: "'Neutraface Text', sans-serif" }} // Force font family
         >
           <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
             {/* Add padding to the entire layout */}
