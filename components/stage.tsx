@@ -14,8 +14,8 @@ export function Stage({ number, title, disabled, last, children }: Props) {
       <div className="flex h-8 flex-row items-center">
         {/* Circle: Adjusted text and background colors for both light and dark modes */}
         <div
-          className="mr-4 flex items-center justify-center h-10 w-10 rounded-full bg-background text-foreground 
-            dark:bg-background dark:text-foreground"
+          className="mr-4 flex items-center justify-center h-10 w-10 rounded-full bg-foreground text-background 
+            dark:bg-foreground dark:text-background"
         >
           {number}
         </div>
