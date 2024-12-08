@@ -1,19 +1,22 @@
-import { cn } from "@/lib/utils";
+import { cn } from "@/lib/utils"
 
 interface Props {
-  number: number;
-  title: string;
-  disabled?: boolean;
-  last?: boolean;
-  children?: React.ReactNode;
+  number: number
+  title: string
+  disabled?: boolean
+  last?: boolean
+  children?: React.ReactNode
 }
 
 export function Stage({ number, title, disabled, last, children }: Props) {
   return (
     <section className={cn(disabled && "opacity-50")}>
       <div className="flex h-8 flex-row items-center">
-        {/* Circle representing the stage number */}
-        <div className="mr-4 grid size-8 shrink-0 place-items-center rounded-full bg-muted text-muted-foreground dark:bg-muted-foreground dark:text-muted-foreground">
+        {/* Circle: Adjusted text and background colors for both light and dark modes */}
+        <div
+          className="mr-4 flex items-center justify-center h-10 w-10 rounded-full bg-background text-foreground 
+            dark:bg-background dark:text-foreground"
+        >
           {number}
         </div>
         <h2 className="font-semibold">{title}</h2>
@@ -27,5 +30,5 @@ export function Stage({ number, title, disabled, last, children }: Props) {
         {children}
       </div>
     </section>
-  );
+  )
 }
