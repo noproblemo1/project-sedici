@@ -14,6 +14,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
           // Apply the ring color by default using the --foreground color
           "ring-2 ring-[hsl(var(--foreground))] ring-offset-2",
           "focus-visible:ring-2",
+          "disabled:cursor-not-allowed disabled:opacity-50", // Added disabled state styling
           className
         )}
         ref={ref}
