@@ -12,7 +12,7 @@ export const siteConfig = {
     },
     {
       title: "Create a community handle",
-      href: "/create",
+      href: "/create-your-own-community-handle",
     },
   ],
   links: {
