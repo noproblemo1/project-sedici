@@ -79,6 +79,17 @@
     --radius: 0.5rem;
   }
 
+  /* Apply custom selection styles */
+  ::selection {
+    background-color: hsl(var(--primary));
+    color: hsl(var(--primary-foreground));
+  }
+
+  ::-moz-selection {
+    background-color: hsl(var(--primary));
+    color: hsl(var(--primary-foreground));
+  }
+
   /* Apply border styles globally */
   * {
     @apply border-border;
