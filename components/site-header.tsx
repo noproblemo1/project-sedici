@@ -8,7 +8,7 @@ import { type NavItem } from "@/types/nav";
 import { siteConfig } from "@/config/site";
 import { cn } from "@/lib/utils";
 import { buttonVariants } from "@/components/ui/button";
-import { Icons } from "@/components/icons"; // Icons includes Bluesky
+import { Icons } from "@/components/icons"; // Import Sedici and Bluesky icons
 import { Link } from "@/components/link";
 import { ThemeToggle } from "@/components/theme-toggle";
 
@@ -23,7 +23,7 @@ export function SiteHeader({ children }: Props) {
 
   const links = (
     <nav className="flex items-center gap-4 md:gap-1">
-      {/* Bluesky Logo */}
+      {/* Bluesky Icon */}
       <Link href="https://bsky.app/profile/sedici.me" className="flex items-center">
         <div
           className={buttonVariants({
@@ -32,11 +32,11 @@ export function SiteHeader({ children }: Props) {
             className: "focus-visible:ring-2 focus-visible:ring-[hsl(var(--foreground))]",
           })}
         >
-          <Icons.bluesky className="size-5" />
+          <Icons.bluesky className="size-5" /> {/* Bluesky Icon */}
           <span className="sr-only">Bluesky</span>
         </div>
       </Link>
-      
+
       {/* GitHub Icon */}
       <Link href={siteConfig.links.github} target="_blank" rel="noreferrer">
         <div
@@ -46,7 +46,7 @@ export function SiteHeader({ children }: Props) {
             className: "focus-visible:ring-2 focus-visible:ring-[hsl(var(--foreground))]",
           })}
         >
-          <Icons.gitHub className="size-5" />
+          <Icons.gitHub className="size-5" /> {/* GitHub Icon */}
           <span className="sr-only">GitHub</span>
         </div>
       </Link>
@@ -62,7 +62,14 @@ export function SiteHeader({ children }: Props) {
     <>
       <header className="sticky top-0 z-40 w-full border-b bg-background">
         <div className="container flex h-16 items-center justify-between space-x-4 sm:space-x-0">
+          {/* Sedici Logo on the left */}
+          <Link href="/" className="flex items-center">
+            <Icons.sediciLogo className="size-5 text-current" /> {/* Use size-5 and currentColor */}
+            <span className="sr-only">Sedici Logo</span>
+          </Link>
+
           {children}
+
           <div>
             <div className="block md:hidden">
               <MenuIcon
