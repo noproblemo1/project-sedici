@@ -8,7 +8,7 @@ import { type NavItem } from "@/types/nav";
 import { siteConfig } from "@/config/site";
 import { cn } from "@/lib/utils";
 import { buttonVariants } from "@/components/ui/button";
-import { Icons } from "@/components/icons";
+import { Icons } from "@/components/icons"; // Icons includes Bluesky
 import { Link } from "@/components/link";
 import { ThemeToggle } from "@/components/theme-toggle";
 
@@ -23,6 +23,21 @@ export function SiteHeader({ children }: Props) {
 
   const links = (
     <nav className="flex items-center gap-4 md:gap-1">
+      {/* Bluesky Logo */}
+      <Link href="https://bsky.app/profile/sedici.me" className="flex items-center">
+        <div
+          className={buttonVariants({
+            size: "sm",
+            variant: "ghost",
+            className: "focus-visible:ring-2 focus-visible:ring-[hsl(var(--foreground))]",
+          })}
+        >
+          <Icons.bluesky className="size-5" />
+          <span className="sr-only">Bluesky</span>
+        </div>
+      </Link>
+      
+      {/* GitHub Icon */}
       <Link href={siteConfig.links.github} target="_blank" rel="noreferrer">
         <div
           className={buttonVariants({
@@ -35,6 +50,8 @@ export function SiteHeader({ children }: Props) {
           <span className="sr-only">GitHub</span>
         </div>
       </Link>
+
+      {/* Theme Toggle */}
       <ThemeToggle />
     </nav>
   );
