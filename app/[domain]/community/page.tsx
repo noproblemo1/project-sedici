@@ -41,10 +41,10 @@ export default async function CommunityPage({ params }: Props) {
           The {domain} community
         </h1>
         <p className="max-w-[500px] text-lg text-muted-foreground sm:text-xl">
-          Want to join the {count} members of the {domain} community? Get your
-          own{" "}
+          There are {count} members of the Sedici community. If you want to join us, get yourself a
+          {" "}
           <Link href="/" className="underline">
-            {domain} handle
+            {domain} handle and follow your fellow members.
           </Link>
           .
         </p>
