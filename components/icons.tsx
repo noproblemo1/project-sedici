@@ -35,7 +35,7 @@ export const Icons = {
     </svg>
   ),
   sediciLogo: (props: LucideProps) => (
-    <img
+    <svg
       src="/icons/sedici.svg"
       alt="Sedici Logo"
       width="24"
