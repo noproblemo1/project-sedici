@@ -4,6 +4,7 @@ import {
   SunMedium,
   type LucideIcon,
 } from "lucide-react";
+import Image from "next/image"; // Import Next.js Image component
 
 // Define the type for icons
 export type Icon = LucideIcon;
@@ -35,11 +36,11 @@ export const Icons = {
     </svg>
   ),
   sediciLogo: (props: LucideProps) => (
-    <svg
+    <Image
       src="/icons/sedici.svg"
       alt="Sedici Logo"
-      width="24"
-      height="24"
+      width={24}
+      height={24}
       {...props}
     />
   ),
