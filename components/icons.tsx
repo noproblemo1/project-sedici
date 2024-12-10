@@ -35,6 +35,12 @@ export const Icons = {
     </svg>
   ),
   sediciLogo: (props: LucideProps) => (
-    <img src="/icons/sedici.svg" alt="Sedici Logo" {...props} />
+    <img
+      src="/icons/sedici.svg"
+      alt="Sedici Logo"
+      width="24"
+      height="24"
+      {...props}
+    />
   ),
 };
