@@ -46,7 +46,7 @@ export default async function CommunityPage({ params }: Props) {
           <Link href="/" className="underline">
             {domain} handle
           </Link>
-             handle and follow your fellow members.
+              and follow your fellow members.
         </p>
 
         <LoadMore
