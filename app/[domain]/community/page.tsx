@@ -44,9 +44,9 @@ export default async function CommunityPage({ params }: Props) {
           There are {count} members of the Sedici community. If you want to join us, get yourself a
           {" "}
           <Link href="/" className="underline">
-            {domain} handle and follow your fellow members.
+            {domain}
           </Link>
-          .
+          handle and follow your fellow members.
         </p>
 
         <LoadMore

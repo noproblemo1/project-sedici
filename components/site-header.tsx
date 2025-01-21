@@ -1,62 +1,42 @@
-"use client";
+"use client"
 
-import { useState } from "react";
-import { usePathname } from "next/navigation"; // Import hook to determine the current path
-import { Menu, X } from "lucide-react";
+import { useState } from "react"
+import { Menu, X } from "lucide-react"
 
-import { type NavItem } from "@/types/nav";
-import { siteConfig } from "@/config/site";
-import { cn } from "@/lib/utils";
-import { buttonVariants } from "@/components/ui/button";
-import { Icons } from "@/components/icons"; // Icons includes Bluesky
-import { Link } from "@/components/link";
-import { ThemeToggle } from "@/components/theme-toggle";
+import { type NavItem } from "@/types/nav"
+import { siteConfig } from "@/config/site"
+import { cn } from "@/lib/utils"
+import { buttonVariants } from "@/components/ui/button"
+import { Icons } from "@/components/icons"
+import { Link } from "@/components/link"
+import { ThemeToggle } from "@/components/theme-toggle"
 
 interface Props {
-  children?: React.ReactNode;
-  items?: NavItem[];
+  children?: React.ReactNode
+  items?: NavItem[]
 }
 
 export function SiteHeader({ children }: Props) {
-  const [showMenu, setShowMenu] = useState(false);
-  const pathname = usePathname(); // Get the current path
+  const [showMenu, setShowMenu] = useState(false)
 
   const links = (
     <nav className="flex items-center gap-4 md:gap-1">
-      {/* Bluesky Logo */}
-      <Link href="https://bsky.app/profile/sedici.me" className="flex items-center">
-        <div
-          className={buttonVariants({
-            size: "sm",
-            variant: "ghost",
-            className: "focus-visible:ring-2 focus-visible:ring-[hsl(var(--foreground))]",
-          })}
-        >
-          <Icons.bluesky className="size-5" />
-          <span className="sr-only">Bluesky</span>
-        </div>
-      </Link>
-      
-      {/* GitHub Icon */}
       <Link href={siteConfig.links.github} target="_blank" rel="noreferrer">
         <div
           className={buttonVariants({
             size: "sm",
             variant: "ghost",
-            className: "focus-visible:ring-2 focus-visible:ring-[hsl(var(--foreground))]",
           })}
         >
           <Icons.gitHub className="size-5" />
           <span className="sr-only">GitHub</span>
         </div>
       </Link>
-
-      {/* Theme Toggle */}
       <ThemeToggle />
     </nav>
-  );
+  )
 
-  const MenuIcon = showMenu ? X : Menu;
+  const MenuIcon = showMenu ? X : Menu
 
   return (
     <>
@@ -87,28 +67,23 @@ export function SiteHeader({ children }: Props) {
       >
         <div className="container flex h-full flex-col items-center justify-stretch px-4 pb-2">
           <nav className="mb-2 flex w-full flex-col items-stretch gap-1 border-b py-2">
-            {siteConfig.mainNav.map((item, index) => {
-              const isActive = item.href === pathname; // Determine if this is the active page
-              return (
+            {siteConfig.mainNav.map(
+              (item, index) =>
                 item.href && (
                   <Link
                     key={index}
                     href={item.href}
                     className={buttonVariants({
                       variant: "ghost",
-                      className: cn(
+                      className:
                         "w-full !justify-start text-left font-semibold text-muted-foreground",
-                        isActive && "bg-muted text-foreground", // Highlight active page
-                        "focus-visible:ring-2 focus-visible:ring-[hsl(var(--foreground))]"
-                      ),
                     })}
                     onClick={() => setShowMenu(false)}
                   >
                     {item.title}
                   </Link>
                 )
-              );
-            })}
+            )}
           </nav>
           {links}
         </div>
@@ -123,5 +98,5 @@ export function SiteHeader({ children }: Props) {
         onClick={() => setShowMenu(false)}
       />
     </>
-  );
+  )
 }
